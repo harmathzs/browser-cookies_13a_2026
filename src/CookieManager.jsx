@@ -22,7 +22,13 @@ class CookieManager extends Component {
 
   // ----- Cookie helpers -----
   getCookies = () => {
-
+    const cookies = document.cookie.split(';')
+    console.log('cookies', cookies)
+    return cookies.map( (cookieStr)=>{
+        const pair = cookieStr.trim().split('=')
+        console.log('pair', pair)
+        return pair
+    } )
   };
 
   setCookie = (name, value, days) => {
