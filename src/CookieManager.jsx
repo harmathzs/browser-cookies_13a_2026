@@ -43,11 +43,14 @@ class CookieManager extends Component {
   };
 
   deleteCookie = (name) => {
-
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`
   };
 
   clearAllCookies = () => {
-
+    const cookies = this.getCookies()
+    cookies.forEach(cookie=>this.deleteCookie(cookie.name))
+    this.refreshCookies()
+    this.showMessage("All cookies cleared")
   };
 
   refreshCookies = () => {
