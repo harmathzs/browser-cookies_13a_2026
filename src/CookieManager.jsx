@@ -34,7 +34,12 @@ class CookieManager extends Component {
   };
 
   setCookie = (name, value, days) => {
-
+    const expirationDate = new Date()
+    expirationDate.setTime(expirationDate.getTime() + 1000*60*60*24*days)
+    const cookieStr = `${name}=${value}; expires=${expirationDate.toUTCString()}; path=/`
+    console.log(cookieStr)
+    document.cookie = cookieStr
+    console.log(document.cookie)
   };
 
   deleteCookie = (name) => {
