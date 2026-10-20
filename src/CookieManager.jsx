@@ -26,7 +26,10 @@ class CookieManager extends Component {
     return cookies.map( (cookieStr)=>{
         const rawStr = cookieStr.trim()
         const [name, value] = rawStr.split('=')
-        return {name: name.trim(), value: value.trim()}
+
+        
+
+        return {name: name?.trim(), value: value?.trim()}
     } )
   };
 
